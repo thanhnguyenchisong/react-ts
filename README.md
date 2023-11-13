@@ -23,6 +23,7 @@ That is support for type definations to JavaScript code bases.
 3. Anotation with Children
 If we explicit component as ReactComponent that will auto receive content as children without declare the children params in props.
 4. State with TypeScript
+Listent state of a variable
 `const [name, setName] = useState('your default value');`
 5. Type inference with state
 `const [guests. setGuests] = useState<string[]>([])
@@ -41,7 +42,11 @@ All type can be refer in there html suggestion.
 
 
 => Apply TS => Apply types to components props, type to state of component, type for event handlers and other assorted areas
+
 3. Refs
+
+
+`const inputRef = useRef<HTMLInputElement>();`
 
 
 
