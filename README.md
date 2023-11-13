@@ -24,10 +24,26 @@ That is support for type definations to JavaScript code bases.
 If we explicit component as ReactComponent that will auto receive content as children without declare the children params in props.
 4. State with TypeScript
 `const [name, setName] = useState('your default value');`
-1. Type inference with state
+5. Type inference with state
 `const [guests. setGuests] = useState<string[]>([])
  setGuests([...guests, name])
 `
+6.  TypeUnicons in State
+`const[user, setUser]` = useState<{name: String, age: number} | undefined>
+
+## Section 3. - Type around Events and Refs
+1. Event:
+All type can be refer in there html suggestion.
+2. TS with Class Component.
+
+`Class UserSeach extends Component<UserSeachProps> {
+}`
+
+
+=> Apply TS => Apply types to components props, type to state of component, type for event handlers and other assorted areas
+3. Refs
+
+
 
 
 
