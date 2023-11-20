@@ -1,0 +1,1 @@
+let a = [...oldArray, item]; //copy all array to new and add one more evelent item
