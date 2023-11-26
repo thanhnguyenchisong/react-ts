@@ -101,10 +101,31 @@ childrent: ReactNode; } & ComponentPropsWithoutRef<T>
 
 export default function Container<C extends ElementType> ({as, childrent, ...props} : ContainerProps<C>) {
 const Component = as | 'div';
-return <Component {...props}>{childrent}</Component>
-}
+return <Component className='container' {...props}>{childrent}</Component>
 }
 ```
+4. List
+```ts
+    <List
+      items={hobbies}
+      renderItem={(hobby) => <li key={hobby}>{hobby}</li>}
+    />
+```
+5. `forwardRef
+ If you would like to pass your ref to your custom element, that should use forwardRef
+```ts
+const Input = forwardRef<HTMLInputElement, InputProps>( function Input<{id, ...props}> : InputProps, ref {
+return <input id={id} {...props} ref={ref} />
+})
+```
+6. Form custom component
+```ts
+type FormProps = ComponentPropsWithoutRef<'form'>;
+export default function Form() {
+  return <form {...props}>{props.childrent}</form>
+}
+```
+7. 
 
 
 
