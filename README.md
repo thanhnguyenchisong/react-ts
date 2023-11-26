@@ -73,7 +73,7 @@ The variable is observated in second param, in this case second param is [] => j
 1. Use union type to define that as a mode to switch the behaviors as Discriminated Unions
 ```ts
 type HintBoxProps = {
-   mode: 'hint';
+   mode: 'hint'; //can use for switch in if else of react component type script
    children: ReactNode
 }
 type WarningBoxProps = {
