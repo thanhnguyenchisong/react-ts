@@ -88,11 +88,23 @@ You can wrapper component as a customized component.
 ```ts
 type InputProps = ComponentPropsWithoutRef<'input'> & {id: string}
 export const Input: React.FC<InputProps> = ({id, ...attributes}) => {
-  return <input className='button' {...atrributes} /> //can add more strategy
+  return <input className='button' id={id} {...atrributes} /> //can add more strategy
 } //all input atrributes take over to this custom Input 
 ```
 
 ```?``` is optional variable
+3. Polymorphic Component.
+```ts
+type ContainerProps<T extends ElementType> = {
+as?: T;
+childrent: ReactNode; } & ComponentPropsWithoutRef<T>
+
+export default function Container<C extends ElementType> ({as, childrent, ...props} : ContainerProps<C>) {
+const Component = as | 'div';
+return <Component {...props}>{childrent}</Component>
+}
+}
+```
 
 
 
