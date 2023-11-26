@@ -86,10 +86,14 @@ type InfoBoxProps = HintBoxProps | WarningBoxProps;
 2. Wrapper Component
 You can wrapper component as a customized component.
 ```ts
-export const Input: React.FC<Props> = ({...attributes}) => {
+type InputProps = ComponentPropsWithoutRef<'input'> & {id: string}
+export const Input: React.FC<InputProps> = ({id, ...attributes}) => {
   return <input className='button' {...atrributes} /> //can add more strategy
 } //all input atrributes take over to this custom Input 
 ```
+
+```?``` is optional variable
+
 
 
 
