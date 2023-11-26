@@ -120,9 +120,17 @@ return <input id={id} {...props} ref={ref} />
 ```
 6. Form custom component
 ```ts
-type FormProps = ComponentPropsWithoutRef<'form'>;
-export default function Form() {
-  return <form {...props}>{props.childrent}</form>
+type FormProps = ComponentPropsWithoutRef<'form'> & {
+onSave: (value: unknown) => void
+};
+export default function Form({onSave, childrent, ...otherProps}) {
+handleSubmit: (event: FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+  const formData = new FormData(event.curentTarget);
+  const data = Object.fromEntries(formData);
+  onSave(data);
+}
+  return <form {...otherProps}>{childrent}</form>
 }
 ```
 7. 
