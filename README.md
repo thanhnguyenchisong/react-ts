@@ -42,6 +42,11 @@ const [guests. setGuests] = useState<string[]>([])
 ```ts
 const[user, setUser]` = useState<{name: String, age: number} | undefined>
 ```
+7. useEffect
+   Do when some field was change, default run first time
+```ts
+useEffect(() => {//do something }, [])
+``` 
 ## Section 3. - Type around Events and Refs
 1. Event:
 All type can be refer in there html suggestion.
@@ -61,10 +66,6 @@ const inputRef = useRef<HTMLInputElement | null>();
 <input ref={inputRef} />
 ```
 We can work with `input` element through `inputRef`
-
-1. useEffect
-   Do when some field was change, default run first time
-`useEffect(() => {//do something }, [])` 
 
 The variable is observated in second param, in this case second param is [] => just run in the first time.
 
