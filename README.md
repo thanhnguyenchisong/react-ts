@@ -1,4 +1,4 @@
-# React TS
+# React TS (https://react.dev/reference/react)
 
 **Motivation** : Get the type safety to your JavaScript code
 
@@ -119,18 +119,31 @@ return <input id={id} {...props} ref={ref} />
 })
 ```
 6. Form custom component
+   
 ```ts
 type FormProps = ComponentPropsWithoutRef<'form'> & {
 onSave: (value: unknown) => void
 };
 export default function Form({onSave, childrent, ...otherProps}) {
-handleSubmit: (event: FormEvent<HTMLFormElement>) => {
+const form = useRef<HTMLFormElement>(null)
+
+// @Link: https://react.dev/reference/react/useImperativeHandle
+useImperativeHandle(ref, () => { //idea is expose a ref from parent to this component then interact with that ref - we call that is expose Component API.
+  return {
+    clear() {
+      form.current?.rest();
+    }
+  }
+}) // In this we expose a the clear API way which should be refer from parent. Need to practice
+
+const handleSubmit: (event: FormEvent<HTMLFormElement>) => {
   event.preventDefault();
   const formData = new FormData(event.curentTarget);
   const data = Object.fromEntries(formData);
   onSave(data);
+  form.current?.reset();
 }
-  return <form {...otherProps}>{childrent}</form>
+  return <form {...otherProps} ref={form}>{childrent}</form>
 }
 ```
 7. 
