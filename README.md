@@ -70,8 +70,7 @@ We can work with `input` element through `inputRef`
 The variable is observated in second param, in this case second param is [] => just run in the first time.
 
 ## Section 4 - Advanced Component Types - Dynamic Components, Polymorphic Components and Mores.
-1. Use union type to define that as a mode to switch the behaviors.
-2. Discriminated Unions
+1. Use union type to define that as a mode to switch the behaviors as Discriminated Unions
 ```ts
 type HintBoxProps = {
    mode: 'hint';
@@ -84,8 +83,13 @@ type WarningBoxProps = {
 }
 type InfoBoxProps = HintBoxProps | WarningBoxProps;
 ```
-3. Wrapper Component
-
+2. Wrapper Component
+You can wrapper component as a customized component.
+```ts
+export const Input: React.FC<Props> = ({...attributes}) => {
+  return <input className='button' {...atrributes} /> //can add more strategy
+} //all input atrributes take over to this custom Input 
+```
 
 
 
