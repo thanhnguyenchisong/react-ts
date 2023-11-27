@@ -86,8 +86,12 @@ export default function TimersContextProvider({
   children,
 }: TimersContextProviderProps) {
   const [timersState, dispatch] = useReducer(timersReducer, initialState);
+  //timerState is result of timerReducer.
+  //dispath is action which as input of timersReducer
+  //timersReducer is a process that will return the timerState depends on action
+  //initialState the default value for first time.
 
-  const ctx: TimersContextValue = {
+  const ctx: TimersContextValue = { //when there are any change from reducer -> that will update to ctx
     timers: timersState.timers,
     isRunning: timersState.isRunning,
     addTimer(timerData) {
