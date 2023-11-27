@@ -147,8 +147,14 @@ const handleSubmit: (event: FormEvent<HTMLFormElement>) => {
   return <form {...otherProps} ref={form}>{childrent}</form>
 }
 ```
-7. 
+## Section 5: Advanced Type-Safe state with ContextAPI & useReducer
+Managing state cross multiple components and even cross the entire app
+
+1. Create your context component
 
 
+2. Use useContext() hook
 
 
+3. Use useReducer() hook
+This manage some states
